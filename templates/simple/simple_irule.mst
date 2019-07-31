@@ -4,7 +4,7 @@ Deploy an HTTP server with an iRule attached. Uses port 80 on client and server 
 {
   "class": "ADC",
   "schemaVersion": "3.0.0",
-  "id": "0123-4567-8910",
+  "id": "template-simple-irule",
   "label": "HTTP Sample 2",
   "remark": "HTTP with iRule for pool",
   "{{tenant_name}}": {
@@ -28,7 +28,7 @@ Deploy an HTTP server with an iRule attached. Uses port 80 on client and server 
           "http"
         ],
         "members": [{
-          "servicePort": 80,
+          "servicePort": {{server_port::number}},
           "serverAddresses": {{server_addressses::array}}
         }]
       },

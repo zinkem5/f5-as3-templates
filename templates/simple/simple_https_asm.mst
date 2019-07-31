@@ -9,7 +9,7 @@
   "declaration": {
     "class": "ADC",
     "schemaVersion": "3.0.0",
-    "id": "0123-4567-8910",
+    "id": "template-simple-https-asm",
     "label": "Simple HTTPS",
     "remark": "An HTTPS application",
     "{{tenant_name}}": {
@@ -19,6 +19,7 @@
         "template": "https",
         "serviceMain": {
           "class": "Service_HTTPS",
+          "virtualPort": {{virtual_port::number}},
           "virtualAddresses": [ "{{virtual_address}}" ],
           "pool": "web_pool",
           "policyWAF": {

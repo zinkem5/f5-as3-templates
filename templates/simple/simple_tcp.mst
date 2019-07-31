@@ -8,7 +8,7 @@
   "declaration": {
     "class": "ADC",
     "schemaVersion": "3.0.0",
-    "id": "0123-4567-8910",
+    "id": "template-simple-tcp",
     "label": "Sample TCP 1",
     "remark": "TCP",
     "{{tenant_name}}": {
