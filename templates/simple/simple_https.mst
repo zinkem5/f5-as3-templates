@@ -1,5 +1,7 @@
 {{!
-  Simplest example of an HTTPS application hosted at post 443.
+  Simplest example of an HTTPS application. Provide a Virtual IP address and port
+  along with a list of HTTP server ip addresses and ports, as well as the HTTPS
+  certificate and private key.
 }}
 {
   "class": "AS3",
@@ -18,7 +20,7 @@
         "template": "https",
         "serviceMain": {
           "class": "Service_HTTPS",
-          "virtualPort": {{virtual_port::number}},
+          "virtualPort": {{virtual_port::integer}},
           "virtualAddresses": [ "{{virtual_address}}" ],
           "pool": "web_pool",
           "serverTLS": "webtls"
@@ -29,7 +31,7 @@
             "http"
           ],
           "members": [{
-            "servicePort": {{server_port::number}},
+            "servicePort": {{server_port::integer}},
             "serverAddresses": {{server_address::array}}
           }]
         },

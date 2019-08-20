@@ -1,6 +1,8 @@
 {{!
-  Apply an existing ASM policy at the path specified by WAF_policy_path to an
-  https server hosted on port 443.
+Example of an HTTPS application using an ASM Policy. Provide a Virtual IP address
+and port along with a list of HTTP server ip addresses and a port, as well as the HTTPS
+certificate and private key. A path to a WAF policy must also be provided to
+provide L7 security and logging features.
 }}
 {
   "class": "AS3",
@@ -19,7 +21,7 @@
         "template": "https",
         "serviceMain": {
           "class": "Service_HTTPS",
-          "virtualPort": {{virtual_port::number}},
+          "virtualPort": {{virtual_port::integer}},
           "virtualAddresses": [ "{{virtual_address}}" ],
           "pool": "web_pool",
           "policyWAF": {
@@ -33,7 +35,7 @@
             "http"
           ],
           "members": [{
-            "servicePort": {{server_port::number}},
+            "servicePort": {{server_port::integer}},
             "serverAddresses": {{server_address::array}}
           }]
         },

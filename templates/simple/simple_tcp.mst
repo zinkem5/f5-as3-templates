@@ -1,5 +1,6 @@
 {{!
- Simple TCP load balancer using the same port on client and server side.
+ Simple TCP application. Provide a Virtual IP Address and a port for client
+ to connect to, and a list of IP Addresses with a port hosting a TCP service.
 }}
 {
   "class": "AS3",
@@ -21,13 +22,13 @@
           "virtualAddresses": [
             "{{virtual_address}}"
           ],
-          "virtualPort": {{virtual_port::number}},
+          "virtualPort": {{virtual_port::integer}},
           "pool": "svc_pool"
         },
         "svc_pool": {
           "class": "Pool",
           "members": [{
-            "servicePort": {{virtual_port::number}},
+            "servicePort": {{virtual_port::integer}},
             "serverAddresses": {{server_addresses::array}}
           }]
         }

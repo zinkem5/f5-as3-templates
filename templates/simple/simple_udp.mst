@@ -1,5 +1,6 @@
 {{!
-Simple UDP load balancer using the same port on client and server side.
+Simple UDP application. Provide a Virtual IP Address and a port for client
+to connect to, and a list of IP Addresses with a port hosting a UDP service.
 }}
 {
   "class": "AS3",
@@ -17,7 +18,7 @@ Simple UDP load balancer using the same port on client and server side.
         "template": "udp",
         "serviceMain": {
           "class": "Service_UDP",
-          "virtualPort": {{virtual_port::number}},
+          "virtualPort": {{virtual_port::integer}},
           "virtualAddresses": [
             "{{virtual_address}}"
           ],
@@ -30,7 +31,7 @@ Simple UDP load balancer using the same port on client and server side.
           ],
           "members": [
             {
-              "servicePort": {{virtual_port::number}},
+              "servicePort": {{virtual_port::integer}},
               "serverAddresses": {{server_addresses::array}}
             }
           ]

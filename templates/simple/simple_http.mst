@@ -1,6 +1,7 @@
 {{!
-  The simplest example of an HTTP server load balanced to other servers at
-  port 80.
+  A simple application with HTTP load balancing. Provide a virtual address and
+  port to host on, and a list of HTTP server IP addresses and a port to send
+  requests to.
 }}
 {
   "class": "AS3",
@@ -21,7 +22,7 @@
           "class": "Service_HTTP",
           "virtualPort": {{virtual_port::number}},
           "virtualAddresses": ["{{virtual_address}}"],
-          "pool": "web_pool",
+          "pool": "web_pool"
         },
         "web_pool": {
           "class": "Pool",
