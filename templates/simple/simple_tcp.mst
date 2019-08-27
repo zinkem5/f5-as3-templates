@@ -1,6 +1,6 @@
 {{!
- Simple TCP application. Provide a Virtual IP Address and a port for client
- to connect to, and a list of IP Addresses with a port hosting a TCP service.
+ Simple TCP application load balancer. Provide a Virtual IP address and a port
+ for clients to connect to, and a list of IP addresses hosting a TCP service.
 }}
 {
   "class": "AS3",
@@ -28,7 +28,7 @@
         "svc_pool": {
           "class": "Pool",
           "members": [{
-            "servicePort": {{virtual_port::integer}},
+            "servicePort": {{server_port::integer}},
             "serverAddresses": {{server_addresses::array}}
           }]
         }

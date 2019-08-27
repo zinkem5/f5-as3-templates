@@ -1,7 +1,7 @@
 {{!
-  Simplest example of an HTTPS application. Provide a Virtual IP address and port
-  along with a list of HTTP server ip addresses and ports, as well as the HTTPS
-  certificate and private key.
+  An HTTPS application with load balacing. Provide a Virtual IP address and port
+  along with a list of HTTP server IP addresses, a port, and the HTTPS
+  certificate and private key to use.
 }}
 {
   "class": "AS3",

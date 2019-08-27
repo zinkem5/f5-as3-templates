@@ -31,7 +31,7 @@ to connect to, and a list of IP Addresses with a port hosting a UDP service.
           ],
           "members": [
             {
-              "servicePort": {{virtual_port::integer}},
+              "servicePort": {{server_port::integer}},
               "serverAddresses": {{server_addresses::array}}
             }
           ]
